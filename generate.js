@@ -31,7 +31,7 @@ function generate (dir, log, cb) {
     }
 
     pkg.scripts.test = 'standard && tap test/*.test.js test/*/*.test.js test/*/*/*.test.js'
-    pkg.scripts.start = 'fastify start app.js'
+    pkg.scripts.start = 'fastify start -l info app.js'
     pkg.scripts.dev = 'fastify start -l info -P app.js'
     pkg.scripts.lint = 'standard --fix'
 
