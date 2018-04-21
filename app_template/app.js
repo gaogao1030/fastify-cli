@@ -11,15 +11,15 @@ module.exports = function (fastify, opts, next) {
   // This loads all plugins defined in plugins
   // those should be support plugins that are reused
   // through your application
-  fastify.register(AutoLoad, {
+  fastify.register(AutoLoad, Object.assign({}, opts, {
     dir: path.join(__dirname, 'plugins')
-  })
+  }))
 
   // This loads all plugins defined in services
   // define your routes in one of these
-  fastify.register(AutoLoad, {
+  fastify.register(AutoLoad, Object.assign({}, opts, {
     dir: path.join(__dirname, 'services')
-  })
+  }, opts))
 
   // Make sure to call next when done
   next()
